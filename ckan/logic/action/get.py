@@ -1137,7 +1137,7 @@ def resource_show(context, data_dict):
     pkg_dict = logic.get_action('package_show')(
         dict(context),
         {'id': resource.package.id,
-        'include_tracking': asbool(data_dict.get('include_tracking', False))})
+        'include_tracking': asbool(data_dict.get('include_tracking', True))})
 
     for resource_dict in pkg_dict['resources']:
         if resource_dict['id'] == id:

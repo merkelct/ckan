@@ -123,6 +123,10 @@ def resource_dictize(res, context):
                                     resource_id=res.id,
                                     filename=cleaned_name,
                                     qualified=True)
+        if "/frontdoor" in resource['url']:
+            resource['url'] = resource['url']
+        else:
+            resource['url'] = resource['url'].replace("/dataset", "/frontdoor/dataset")
     elif not urlparse.urlsplit(url).scheme and not context.get('for_edit'):
         resource['url'] = u'http://' + url.lstrip('/')
     return resource
